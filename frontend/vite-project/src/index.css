@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'RF_RUTUBE';
+  src: url('../public/fonts/RF_RUTUBE_Medium.ttf');
+}
+
+@font-face {
+  font-family: 'RF_RUTUBE_BOLD';
+  src: url('../public/fonts/RF_RUTUBE_Bold.ttf');
+}
+
+@font-face {
+  font-family: 'RF_RUTUBE_LIGHT';
+  src: url('../public/fonts/RF_RUTUBE_Light.ttf');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../public/fonts/OpenSans-Regular.woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans Light';
+  src: url('../public/fonts/OpenSans-Light.woff2');
+}
+
+
+@font-face {
+  font-family: 'Open Sans Medium';
+  src: url('../public/fonts/OpenSans-Medium.woff2');
+}
+
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  position: relative;
+  margin: 0;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  position: relative;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  outline: transparent !important;
+}
+button:active {
+  --tw-ring-color: transparent;  
+}
+
+.dark\:focus\:ring-cyan-800:focus:is(.dark *) {
+  --tw-ring-shadow: none;
+}
+
+.dark\:bg-cyan-600:is(.dark *) {
+  background-color: transparent !important;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 0px auto -webkit-focus-ring-color;
+}
+
+button:focus {
+  outline: transparent !important;
+}
+
+[type='search']:focus {
+  --tw-ring-shadow: none;
+}
+
+/* Класс из tailwind, единственный который дал имзенить стили flowbite-sidebar */
+.text-base {
+  text-align: left;
+}
+
+body::-webkit-scrollbar {
+  width: 6px;              
+}
+body::-webkit-scrollbar-track {
+  background: #14191F;      
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #3D4A58;    
+  border-radius: 20px;     
+  border: 3px solid transparent; 
+  height: 40px;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+li {
+  margin-top: 0 !important;
+  font-family: 'Open Sans';
+}
