@@ -45,7 +45,7 @@ const Task = ({data}) => {
         <span className="text-emerald-500 font-bold">В ожидании</span>
         <div className="buttonsDiv flex flex-row gap-[12px]">
             <button className="bordered-[20px] bg-blue-600 text-white"
-            onClick={() => { window.location.href = `https://t.me/${'aleksey'}` }}
+            onClick={() => { window.location.href = `https://t.me/Denchik_kirill_bot` }}
             >
                 Ответить
             </button>
