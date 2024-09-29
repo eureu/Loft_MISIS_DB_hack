@@ -48,9 +48,12 @@ HTTP Response: Body
 
 ### Запуск
 
-Для запуска сервиса на локальной машине необходимо установить утилиты `docker-compose`.
+Для запуска сервиса на локальной машине необходимо установить docker (для Windows: 'docker desktop', для Mac и Linux: 'docker').
 
-1. Создать файлы `.env` в директориях ml и responser (примеры в `.env.example`)
-2. Создать файл `config.yaml` в `backend/config/` (пример в `config.example.yaml`)
-3. Запустить сервисы командой `docker-compose up -d`
-4. Фронтенд доступен на [http://localhost:3000](http://localhost:3000)
+1. Зайдите на сервер, где хотите развернуть приложение с помощью ssh
+2. Скачайте репозиторий с помощью git clone https://github.com/eureu/Loft_MISIS_DB_hack
+3. Перейдите в корневую папку репозитория, в которой лежит файл docker-compose.yml
+4. Настройте доменные имена на ip вашего сервера, укажите их для сервисов springapi и ml в docker-compose.yml в labels, внутри скобок Host()
+5. Запустите в консоли программу docker compose up -d
+6. Spring API будет доступно по указанному домену сразу после запуска, документация к нему находится в /swagger-ui/index.html
+7. ML сервис будет доступен по указанному домену через 10-15 минут после запуска
