@@ -29,7 +29,7 @@ HTTP Response: Body
 
 #### Архитектура решения:
 
-![image](https://github.com/user-attachments/assets/76bef6c7-8f90-4aec-bc16-3a3cf2c50282)
+![image](https://github.com/user-attachments/assets/c2d47831-1c3b-4dea-8f3b-b077a9aab726)
 
 ### Архитектура ML
 
