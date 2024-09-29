@@ -1,0 +1,23 @@
+server:
+  port: 8080
+springdoc:
+  swagger-ui:
+    version: 4.1.3
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Dbname
+    username: postgres
+    password: example
+  #jpa.hibernate.ddl-auto: update
+  jpa.hibernate.ddl-auto: create
+
+service:
+  ml:
+    address: "http://localhost:8080"
+
+secret:
+  registration: "T0HSj2,bOXX;l*s`e815uyHYMrQbI"
+
+security:
+  secret: "SMsN2yX3WPJMhSJiUX5Lcjk6OuHelJNtq7XtsAwB6QSMsN2yX3WPJMhSJiUX5Lcjk6OuHelJNtq7XtsAwB6QSMsN2yX3WPJMhSJiUX5Lcjk6OuHelJNtq7XtsAwB6QSMsN2yX3WPJMhSJiUX5Lcjk6OuHelJNtq7XtsAwB6QSMsN2yX3WPJMhSJiUX5Lcjk6OuHelJNtq7XtsAwB6Q"
