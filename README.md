@@ -43,7 +43,8 @@ HTTP Response: Body
 
 ### Взаимодействие сервисов
 
-![image](https://github.com/user-attachments/assets/7e5b75be-9e5a-457a-8721-c2611961db4c)
+![image](https://github.com/user-attachments/assets/30c9064a-9540-451e-a2a6-8cef6ee07b14)
+
 
 ### Запуск
 
