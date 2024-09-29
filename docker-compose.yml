@@ -1,0 +1,85 @@
+version: "3.3"
+
+services:
+
+  traefik:
+    image: "traefik:v3.1"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.web.address=:80"
+      - "--entryPoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
+      #- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.myresolver.acme.email=postmaster@example.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  db:
+    image: 'postgres:13.1-alpine'
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=adjfkasjdf23123lj
+      - POSTGRES_DB=Dbname
+    restart: unless-stopped
+
+  app:
+    expose:
+      - "80"
+    container_name: springapi
+    image: 'auxxxxx/admin_service:latest12'
+    depends_on:
+      - db
+    environment:
+      - SERVER_PORT=80
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/Dbname
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=adjfkasjdf23123lj
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+      - SPRINGDOC_SWAGGERUI_VERSION=4.1.3
+      - STORAGE_ROOT=glasflair-media-assets
+      - SECRET_REGISTRATION=T0HSj2,bOXX;l*s`e815uyHYMrQbI
+      - SECURITY_SECRET=24432646294A404E635266556A586E3272357538782F413F442A472D4B615064
+      - SPRING_SERVLET_MULTIPART_MAX_FILE_SIZE=50MB
+      - SPRING_SERVLET_MULTIPART_MAX_REQUEST_SIZE=50MB
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.app.rule=Host(`backend.rutube-help-admin.ru`)"
+      - "traefik.http.routers.app.entrypoints=websecure"
+      - "traefik.http.routers.app.tls.certresolver=myresolver"
+
+    restart: unless-stopped
+
+
+  ml:
+    expose:
+      - "80"
+    image: 'auxxxxx/ml:latest7'
+    container_name: ml
+    environment:
+      - TELEGRAM_TOKEN=7073100922:AAE2LFJAr3xCem7gf9GFgeu-wynSkEjaeHM
+      - NODE_ID=b1gm01p453omodqhuj5h
+      - AUTHORIZATION_API_KEY=AQVN0USv6s_WK6gkMY25XliRfmTDY_3C5B3Z16jS
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ml.rule=Host(`ml.rutube-help-admin.ru`)"
+      - "traefik.http.routers.ml.entrypoints=websecure"
+      - "traefik.http.routers.ml.tls.certresolver=myresolver"
+    restart: unless-stopped
+    
+    
